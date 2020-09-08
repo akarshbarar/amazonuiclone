@@ -9,6 +9,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Login from './Login';
 import Checkout from './Checkout';
 import Header from './Header';
+import Home from './Home';
 
 function App() {
   return (
@@ -16,24 +17,18 @@ function App() {
        <div className="app">
         <Switch>
           <Route path="/login">
+          <Header/>
             <Login/>
           </Route>
          
           <Route path="/checkout">
+          <Header/>
             <Checkout/>
           </Route>
 
           <Route path="/">
             <Header/>
-            {/* <img src="https://i.picsum.photos/id/533/200/200.jpg?hmac=HvhCl1BSaQrsbedBJm-X8gfnZGp_222QGZ-mYnstPiA" alt=""/>
-              <input type="text" placeholder="Enter somthing"/>
-              <button>
-                  <SearchIcon/>
-              </button>
-              <ArrowDropDownIcon/>
-              <p>Hello Sign in Account <ArrowDropDownIcon/></p>
-              <p>Retrun & orders <ArrowDropDownIcon/></p>
-              <ShoppingCartOutlinedIcon/> */}
+            <Home/>
           </Route>
         </Switch>
       </div>
