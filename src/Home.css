@@ -1,0 +1,13 @@
+.home{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #131921;
+    color:white
+}
+
+.home > img{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
