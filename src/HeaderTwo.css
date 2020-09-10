@@ -1,0 +1,12 @@
+.headerTwo__link{
+    color: white;
+    background-color: #232f3e;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.headerTwo{
+    color: white;
+}
