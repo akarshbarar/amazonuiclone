@@ -1,12 +1,36 @@
 .headerTwo__link{
     color: white;
-    background-color: #232f3e;
     text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+   
 }
 
 .headerTwo{
     color: white;
+}
+
+.headerTwo__options{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #232f3e;
+
+
+}
+
+.headerTwo__optionDeliverSpan{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.headerTwo__optionDeliver{
+    display: flex;
+}
+.headerTwo__optionLinks{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+   
 }

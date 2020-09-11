@@ -12,15 +12,28 @@ import Header from './Header';
 import Home from './Home';
 import Register from './Register';
 import HeaderTwo from './HeaderTwo';
+import Admin from './Admin';
+import Admindashboard from './Admindashboard';
 
 function App() {
   return (
     <Router>
        <div className="app">
         <Switch>
+        <Route path="/admindashboard">
+            <Header/>
+            <HeaderTwo/>
+            <Admindashboard/>
+        </Route>
+        <Route path="/admin">
+            <Header/>
+            <HeaderTwo/>
+            <Admin/>
+        </Route>
+
         <Route path="/signup">
             <Header/>
-          <HeaderTwo/>
+            <HeaderTwo/>
             <Register/>
           </Route>
           <Route path="/login">
