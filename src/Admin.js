@@ -31,7 +31,7 @@ function Admin() {
             </Link>
 
             <div className="admin__container">
-                <h1>Sign In</h1>
+                <h1>Admin Sign In</h1>
                 <form>
                     <h5>Username</h5>
                     <input 

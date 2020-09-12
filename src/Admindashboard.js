@@ -10,16 +10,24 @@ function Admindashboard() {
     const [description, setDescription] = useState('');
     const [imageLink, setImageLink] = useState('');
     const [rate, setRating] = useState(0);
+    const [price, setPrice] = useState(0);
+    
     
 
     const signin =e=>{
         e.preventDefault();
+
         var data={
             title:title,
             description:description,
             imageLink:imageLink,
-            rate:rate
+            rate:rate,
+            price:price
         };
+
+
+        
+
         db.ref("Amazon_Items").push().set(data,(err)=>{
             if(err){
                 console.error(err);
@@ -72,6 +80,15 @@ function Admindashboard() {
                         value={rate}
                         onChange={e=>setRating(e.target.value)}
                         />
+
+                <h5>Price</h5>
+                    <input 
+                        type="number" 
+                        placeholder="Enter Price"
+                        value={price}
+                        onChange={e=>setPrice(e.target.value)}
+                        />
+
                     <button 
                         type="submit"
                         onClick={signin}

@@ -11,8 +11,18 @@
 }
 .home__row{
     display: flex;
-    background-color: white;
+    flex-direction: column;
+    background-color: black;
+    justify-content: space-between;
     z-index: 1;
     margin-left: 5px;
     margin-right: 5px;
+    max-width: 1500px;
+}
+
+@media screen and (min-width: 1000px) {
+    .home__row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(19rem,1fr));
+      }
 }

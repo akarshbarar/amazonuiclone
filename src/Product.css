@@ -1,18 +1,33 @@
+
+.product__title{
+    text-align: center;
+    font-weight: 800;
+    font-size: xx-large;
+}
 .product__rating{
     display: flex;
 }
 .product{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
-    justify-content: flex-end;
+    justify-content:space-evenly;
     max-height: 400px;
     min-width: 100px;
-    background-color: white;
+    background-color: black;
+    color: white;
     margin: 10px;
     z-index: 1;
     padding: 20px;
     width: 100%;
+    transition: transform 100ms ease-in;
+}
+
+.product:hover{
+    transform: scale(1.09);
+    background-color: white;
+    color: black;
+
 }
 
 .product > img{

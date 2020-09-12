@@ -13,30 +13,28 @@ function Home() {
 
     const [data, setData] = useState([]);
     var x=[];
-    db.ref("Amazon_Items").once("value").then(function(datas){
-        console.log(datas.val())
-
-
-        const iterate = (obj) => {
-         Object.keys(obj).forEach(key => {
-     
-     
-
-        
-         if (typeof obj[key] === 'object') {
-                 iterate(obj[key])
-                 x.push(obj[key]);
-                 setData(x);
-             }
-         })
-     }
-
-     iterate(datas.val());
-       
-    });
-
+   
     useEffect(() => {
        
+
+        db.ref("Amazon_Items").on('value',function(snap){
+            let products = snap.val();
+            let newProduct=[];
+
+            for(let product in products){
+                newProduct.push({
+                    title:products[product].title,
+                    description:products[product].description,
+                    imageLink:products[product].imageLink,
+                    rate:products[product].rate,
+                    price:products[product].price,
+
+                });
+
+            }
+            setData(newProduct);
+        })
+        
 
        
       }, []);
@@ -46,81 +44,27 @@ function Home() {
         <div className="home">
            <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"/>
            
+           {
+               console.log(data.length)
+           }
            <div className="home__row">
-
-{
-    console.log("X>>>>>>>>>",x)
-}
-
-            {    
-            data.map(({title,description,imageLink,rate})=>(
-
-                <Product
-                    id={rate}
-                    title={title}
-                    price={description}
-                    image={imageLink}
-
-                />
-
-            ))
-            }
-                        {/* <Product 
-                id="1"
-                title="jkbkjbjbjknkjf"
-                price={11.96}
-                rating={5}
-                image="https://m.media-amazon.com/images/I/81jCu7gcj9L._AC_UL320_.jpg"/>
-
-
-            <Product 
-                id="1"
-                title="fffffff"
-                price={11.96}
-                rating={5}
-                image="https://m.media-amazon.com/images/I/81jCu7gcj9L._AC_UL320_.jpg"/> */}
+               
+                {
+                data.map((product)=>{
+                    return (
+                        <div>
+                        <Product 
+                                id="1"
+                                title={product.title}
+                                price={product.price}
+                                rating={product.rate}
+                                image={product.imageLink} />
+                            </div>
+                    )
+                })
+                }
 
            </div>
-
-           {/* <div className="home__row">
-
-            <Product 
-                id="1"
-                title="jkbkjbjbjknkjf"
-                price={11.96}
-                rating={5}
-                image="https://m.media-amazon.com/images/I/81jCu7gcj9L._AC_UL320_.jpg"/>
-
-
-            <Product 
-                id="1"
-                title="fffffff"
-                price={11.96}
-                rating={5}
-                image="https://m.media-amazon.com/images/I/81jCu7gcj9L._AC_UL320_.jpg"/>
-
-            <Product 
-                id="1"
-                title="fffffff"
-                price={11.96}
-                rating={5}
-                image="https://m.media-amazon.com/images/I/81jCu7gcj9L._AC_UL320_.jpg"/>
-
-            </div>
-
-            <div className="home__row">
-
-                <Product 
-                    id="1"
-                    title="jkbkjbjbjknkjf"
-                    price={11.96}
-                    rating={5}
-                    image="https://m.media-amazon.com/images/I/81jCu7gcj9L._AC_UL320_.jpg"/>
-
-
-                
-                </div> */}
-          
          
         </div>
     )
