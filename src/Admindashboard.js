@@ -27,8 +27,8 @@ function Admindashboard() {
 
 
         
-
-        db.ref("Amazon_Items").push().set(data,(err)=>{
+        //! how to insert data in firebase database
+        db.database().ref("Amazon_Items").push().set(data,(err)=>{
             if(err){
                 console.error(err);
             }
