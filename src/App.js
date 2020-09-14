@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 
@@ -18,50 +18,50 @@ import Admindashboard from './Admindashboard';
 function App() {
   return (
     <Router>
-       <div className="app">
+      <div className="app">
         <Switch>
-        <Route path="/admindashboard">
-            <Header/>
-            <HeaderTwo/>
-            <Admindashboard/>
-        </Route>
-        <Route path="/admin">
-            <Header/>
-            <HeaderTwo/>
-            <Admin/>
-        </Route>
+          <Route path="/admindashboard">
+            <Header />
+            <HeaderTwo />
+            <Admindashboard />
+          </Route>
+          <Route path="/admin">
+            <Header />
+            <HeaderTwo />
+            <Admin />
+          </Route>
 
-        <Route path="/signup">
-            <Header/>
-            <HeaderTwo/>
-            <Register/>
+          <Route path="/signup">
+            <Header />
+            <HeaderTwo />
+            <Register />
           </Route>
           <Route path="/login">
-          <Header/>
-          <HeaderTwo/>
-            <Login/>
+            <Header />
+            <HeaderTwo />
+            <Login />
           </Route>
-         
+
           <Route path="/checkout">
-          <Header/>
-          <HeaderTwo/>
-            <Checkout/>
+            <Header />
+            <HeaderTwo />
+            <Checkout />
           </Route>
 
           <Route path="/">
-            <Header/>
-          <HeaderTwo/>
-            <Home/>
+            <Header />
+            <HeaderTwo />
+            <Home />
           </Route>
 
-          
+
         </Switch>
       </div>
 
     </Router>
-   
 
-    
+
+
   );
 }
 

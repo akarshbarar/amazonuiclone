@@ -13,6 +13,16 @@ import Product from './Product';
 
 function Home() {
 
+    // db.auth().onAuthStateChanged(function(user) {
+    //     if (user) {
+    //       // User is signed in.
+    //      console.log(user.displayName)
+    //       // ...
+    //     } else {
+    //       // User is signed out.
+    //       // ...
+    //     }
+    //   });
 
     const [data, setData] = useState([]);
    

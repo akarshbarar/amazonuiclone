@@ -1,10 +1,42 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
+import db from './firebase';
+
 import {Link} from 'react-router-dom'
+
+import { useHistory } from 'react-router-dom'
+
 function Header() {
+
+
+
+    const [name, setName] = useState('')
+    const history=useHistory();
+
+
+     useEffect(() => {
+       
+
+        db.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              // User is signed in.
+              setName(db.auth().currentUser.displayName);
+             
+              // ...
+            } else {
+              // User is signed out.
+              // ...
+            }
+          });
+
+
+          //history.push('/')
+          
+     }, [])
+
     return (
         <div className="header">
 
@@ -26,7 +58,8 @@ function Header() {
                 {/* 1st Link */}
                 <Link to="/login" className="header__link">
                     <div className="header__option">
-                        <span className="header__optionLineOne">Hello </span>
+                       
+                        <span className="header__optionLineOne">Hello,{name} </span>
                         <span className="header__optionLineTwo">Sign In</span>
                     </div>
                 </Link>

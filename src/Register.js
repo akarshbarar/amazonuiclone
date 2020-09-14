@@ -27,6 +27,9 @@ const signup= e =>{
         .createUserWithEmailAndPassword(email, password)
         .then((e)=>{
             console.log("SIGNED IN");
+            e.user.updateProfile({
+                displayName: name
+            });
             console.log(e)
 
             db.database().ref("Users").child(e.user.uid).set({
@@ -39,7 +42,7 @@ const signup= e =>{
                 }
                 else{
                     console.log("DATA SAVED")
-                    history.push('/');// client side rendering
+                    history.push('/');// client side rendering to HOME PAGE
                     
                 }
             })
@@ -48,7 +51,7 @@ const signup= e =>{
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
-            alert("ERROR OCCURED");
+            alert("ERROR OCCURED>>>>>",error.message);
             // ...
           });
     }
