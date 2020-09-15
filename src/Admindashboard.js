@@ -6,6 +6,7 @@ import db from './firebase'
 import { Link,Redirect } from 'react-router-dom'
 
 function Admindashboard() {
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [imageLink, setImageLink] = useState('');
@@ -26,7 +27,7 @@ function Admindashboard() {
         };
 
 
-        
+        // insert into amazon_itms set ?
         //! how to insert data in firebase database
         db.database().ref("Amazon_Items").push().set(data,(err)=>{
             if(err){

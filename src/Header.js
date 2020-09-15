@@ -9,6 +9,10 @@ import {Link} from 'react-router-dom'
 
 import { useHistory } from 'react-router-dom'
 
+import userNameFromUtil from  './util';
+
+
+
 function Header() {
 
 
@@ -17,14 +21,15 @@ function Header() {
     const history=useHistory();
 
 
-     useEffect(() => {
-       
-
+     useEffect( () => {
+        
+        //var user=userName;
         db.auth().onAuthStateChanged(function(user) {
             if (user) {
               // User is signed in.
-              setName(db.auth().currentUser.displayName);
-             
+            //   setName(db.auth().currentUser.displayName);
+            //   history.push('/')
+            setName(db.auth().currentUser.displayName);
               // ...
             } else {
               // User is signed out.
@@ -32,12 +37,11 @@ function Header() {
             }
           });
 
-
-          //history.push('/')
-          
      }, [])
 
     return (
+
+        
         <div className="header">
 
             {/* LOGO */}
@@ -59,6 +63,7 @@ function Header() {
                 <Link to="/login" className="header__link">
                     <div className="header__option">
                        
+                      
                         <span className="header__optionLineOne">Hello,{name} </span>
                         <span className="header__optionLineTwo">Sign In</span>
                     </div>

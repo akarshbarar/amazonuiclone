@@ -23,6 +23,7 @@ const signup= e =>{
         console.log(email);
         console.log(password)
 
+
         db.auth()
         .createUserWithEmailAndPassword(email, password)
         .then((e)=>{
@@ -35,6 +36,7 @@ const signup= e =>{
             db.database().ref("Users").child(e.user.uid).set({
                 "name":name,
                 "email":email,
+                "password":password,
                 "uid":e.user.uid
             },(err)=>{
                 if(err){
@@ -51,7 +53,7 @@ const signup= e =>{
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
-            alert("ERROR OCCURED>>>>>",error.message);
+            alert(error.message);
             // ...
           });
     }
