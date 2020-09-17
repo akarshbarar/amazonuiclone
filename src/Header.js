@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom'
 
 import userNameFromUtil from  './util';
 
+import cart from './cartservice';
 
 
 function Header() {
@@ -90,7 +91,7 @@ function Header() {
                         {/* BASKET ICON */}
                         <ShoppingCartOutlinedIcon/>
                         {/* NUMBER OF ITEM */}
-                        <span className="header__optionLineTwo header__basketCount">0</span>
+                        <span className="header__optionLineTwo header__basketCount">{cart.length}</span>
                     </div>
                 </Link>
 

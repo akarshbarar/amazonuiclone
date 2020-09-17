@@ -62,12 +62,14 @@ function Home() {
                     data.map((product)=>{
                         return (
                             <div>
+                                
                             <Product 
-                                    id="1"
                                     title={product.title}
                                     price={product.price}
                                     rating={product.rate}
                                     image={product.imageLink} />
+
+
                             </div>
                         )
                     })

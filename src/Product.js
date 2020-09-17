@@ -1,8 +1,23 @@
 import React from 'react'
 import './Product.css'
 
+import cart from './cartservice';
 
-function Product({id,title,image,price,rating}) {
+
+function Product({title,image,price,rating}) {
+
+   
+    function addtocart(title,image,price,rate){
+        cart.push({
+            title:title,
+            image:image,
+            rate:rate,
+            price:price,
+        });
+        console.log(cart)
+    }
+  
+
     return (
         <div className="product">
 
@@ -20,7 +35,7 @@ function Product({id,title,image,price,rating}) {
                 </div>
             </div>  
             <img src={image} alt=""/>
-            <button>Add to Cart</button>
+            <button onClick={()=>addtocart(`${title}`,`${image}`,`${price}`,`${rating}`)}>Add to Cart</button>
         </div>
     )
 }
