@@ -1,10 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
 
 import './Checkout.css';
+import {DataContext } from './DataContext';
 
 
 import cart from './cartservice';
 function Checkout() {
+
+    const [cart,setCart]=useContext(DataContext);
+
     return (
         
         <div className="checkout">

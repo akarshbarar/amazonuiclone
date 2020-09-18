@@ -1,19 +1,24 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './Product.css'
 
 import cart from './cartservice';
+import {DataContext } from './DataContext';
 
 
 function Product({title,image,price,rating}) {
+    const [cart,setCart]=useContext(DataContext);
 
    
     function addtocart(title,image,price,rate){
-        cart.push({
+
+
+        setCart(state=>[...state,{
             title:title,
             image:image,
             rate:rate,
             price:price,
-        });
+        }])
+        
         console.log(cart)
     }
   

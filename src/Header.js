@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useContext,useReducer} from 'react'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -13,17 +13,19 @@ import userNameFromUtil from  './util';
 
 import cart from './cartservice';
 
+import {DataContext } from './DataContext';
+
+import {reducer } from './DataContext';
 
 function Header() {
 
 
-
     const [name, setName] = useState('')
     const history=useHistory();
+    const [cart,setCart]=useContext(DataContext);
 
 
-     useEffect( () => {
-        
+     useEffect( () => {  
         //var user=userName;
         db.auth().onAuthStateChanged(function(user) {
             if (user) {
@@ -37,13 +39,13 @@ function Header() {
               // ...
             }
           });
-
      }, [])
 
     return (
 
         
         <div className="header">
+          
 
             {/* LOGO */}
             <Link to="/">

@@ -3,8 +3,6 @@ import './Home.css';
 
 import db from './firebase';
 
-
-
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -15,11 +13,11 @@ function Home() {
 
    
     const [data, setData] = useState([]);
-   
 
     // TODO : THIS WILL RUN ONLY ONCE WHEN HOME LOADS
     useEffect(() => {
 
+        
         db.database().ref("Amazon_Items").on('value',(snap)=>{
            
             //? THIS WILL RETURN A ARRAY
@@ -41,23 +39,17 @@ function Home() {
 
             }
             setData(newProduct);
-        })
-        
-
-       
+        })       
       }, []);
 
 
     
-
-
     return (
         <div className="home">
            <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"/>
           
            <div className="home__row">
-              {/* JSX JavaScript with XML */}
-               
+              {/* JSX JavaScript with XML */}      
                 {
                     data.map((product)=>{
                         return (
