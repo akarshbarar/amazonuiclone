@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 
 
@@ -15,35 +14,43 @@ import HeaderTwo from './HeaderTwo';
 import Admin from './Admin';
 import Admindashboard from './Admindashboard';
 import db from './firebase';
+import Confirmation from './Confirmation';
+import {addUser} from './action'
 
+import {useDispatch} from 'react-redux'
 
-import { DataProvider } from './DataContext'
 
 function App() {
 
+  const dispatch=useDispatch();
 
+  useEffect(()=>{
 
-
-  // useEffect(() => {
-
-  //   db.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       // User is signed in.
-
-  //     } else {
-  //       // User is signed out.
-
-  //     }
-  //   });
-
-  // }, [])
+    db.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        dispatch(
+          addUser(user.displayName)
+        )
+      } else {
+        // No user is signed in.
+        dispatch(
+          addUser(null)
+        )
+      }
+    });
+  },[]);
 
   return (
 
-    <DataProvider>
       <Router>
         <div className="app">
           <Switch>
+          <Route path="/confirm">
+              <Header />
+              <HeaderTwo />
+              <Confirmation />
+            </Route>
             <Route path="/admindashboard">
               <Header />
               <HeaderTwo />
@@ -77,7 +84,6 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </DataProvider>
 
 
   );

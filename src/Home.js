@@ -3,21 +3,27 @@ import './Home.css';
 
 import db from './firebase';
 
-import SearchIcon from '@material-ui/icons/Search';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Product from './Product';
+import {addMessage} from './action'
 
+import {useDispatch} from 'react-redux'
 
+import {addAdmin} from './action'
 function Home() {
 
    
+    const dispatch=useDispatch();
+
     const [data, setData] = useState([]);
 
     // TODO : THIS WILL RUN ONLY ONCE WHEN HOME LOADS
     useEffect(() => {
 
-        
+        dispatch(
+            addAdmin(null)
+        )
+        dispatch(addMessage(""));
+
         db.database().ref("Amazon_Items").on('value',(snap)=>{
            
             //? THIS WILL RETURN A ARRAY

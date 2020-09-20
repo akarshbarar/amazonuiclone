@@ -1,9 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './Admindashboard.css'
+import {useSelector,useDispatch} from 'react-redux';
 
 import db from './firebase'
+import { Link,Redirect,useHistory } from 'react-router-dom'
 
-import { Link,Redirect } from 'react-router-dom'
 
 function Admindashboard() {
 
@@ -12,8 +13,14 @@ function Admindashboard() {
     const [imageLink, setImageLink] = useState('');
     const [rate, setRating] = useState(0);
     const [price, setPrice] = useState(0);
-    
-    
+    const history=useHistory();
+
+    const  adminReducer=useSelector(state=>state.adminReducer);
+    useEffect(() => {
+       if(!adminReducer){
+            history.push("/admin")
+       }
+    }, [])
 
     const signin =e=>{
         e.preventDefault();

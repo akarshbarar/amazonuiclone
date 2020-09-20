@@ -4,27 +4,17 @@ import { Link } from 'react-router-dom'
 import db from './firebase';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import { useHistory } from 'react-router-dom'
+import {addUser} from './action'
 
+import {useDispatch} from 'react-redux'
 
 
 function HeaderTwo() {
 
     const history=useHistory();
+    const dispatch=useDispatch();
 
-    const signout = e => {
-        db.auth().signOut().then(function() {
-            // Sign-out successful.
-            console.log("SIGN OUT SUCCESSFULL")
-            history.push('/')
-
-          }).catch(function(error) {
-            // An error happened.
-            console.log("ERROR")
-          });
-          
-
-    }
-
+   
     return (
         <div className="headerTwo">
            <div className="headerTwo__options">
@@ -60,7 +50,6 @@ function HeaderTwo() {
 
                 <div className="">
                     <span>Amazon's response to Covid-19</span>
-                    <button  onClick={signout}> Sign out</button>
                 </div>
            </div>
         </div>

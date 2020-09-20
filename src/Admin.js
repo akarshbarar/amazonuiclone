@@ -1,10 +1,16 @@
 import React,{useState} from 'react'
 import './Admin.css'
 import { Link,Redirect,useHistory } from 'react-router-dom'
+import db from './firebase';
+
+import {useDispatch} from 'react-redux'
+
+import {addAdmin} from './action'
 
 function Admin() {
 
 
+    const dispatch=useDispatch();
 
 
     const [userName, setUserName] = useState('');
@@ -12,12 +18,25 @@ function Admin() {
     const history=useHistory();
 
     const signin =e=>{
+        e.preventDefault();
 
+        if(userName==="adminakki@gmail.com"){
 
-        if(userName==="ADMIN" && password==="PASSWORD"){
-            history.push('/admindashboard')
+            db.auth().signInWithEmailAndPassword(userName,password).then((e)=>{
+                dispatch(
+                    addAdmin("ADMIN")
+                )
+
+                history.push('/admindashboard')
+            }).catch((error)=>{
+                if(error){
+                    alert(error.message)
+                }
+            });
+
         }else{
             alert("WRONG CREDENTIALS")
+            history.push('/')
         }
     }
     return (

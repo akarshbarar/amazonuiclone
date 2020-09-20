@@ -7,18 +7,24 @@
 }
 
 .checkout__page{
+    align-items: center;
     background-color: white;
     height: 100%;
-   margin-left: 100px;
-   padding-top: 20px;
-   font-style: normal;
-   font-weight: 800;
-   font-size: x-large;
+    margin-left: 100px;
+    padding-top: 20px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: x-large;
 }
 
 .checkout__data{
-    width: 100%;
-    height: 200px;
+    position: inherit;
+    width: 70%;
+    height: 250px;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -26,4 +32,20 @@
     width: 100px;
     height: 100px;
     object-fit: contain;
+}
+.checkout_PageButton{
+    background: #f0c14b;
+    border-radius: 2px;
+    width: fit-content;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+.checkout_price{
+    font-size: x-large;
+    width: 50%;
+    padding: 20px;
+    align-items: center;
+    margin-left: 70%;
 }

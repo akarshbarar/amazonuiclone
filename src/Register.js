@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
 import './Register.css'
 import { Link } from 'react-router-dom'
-
 import db from './firebase';
-
 import {useHistory } from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {addUser} from './action'
 
 
 function Register() {
@@ -13,6 +13,7 @@ const [name, setName] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [confirmPassword, setConfirmPassword] = useState('')
+const dispatch=useDispatch();
 
 const history=useHistory();
 
@@ -31,6 +32,9 @@ const signup= e =>{
             e.user.updateProfile({
                 displayName: name
             });
+            dispatch(
+                addUser(name)
+            )
             console.log(e)
 
             db.database().ref("Users").child(e.user.uid).set({
@@ -51,8 +55,6 @@ const signup= e =>{
         })
         .catch(function(error) {
             // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
             alert(error.message);
             // ...
           });
@@ -67,6 +69,7 @@ const signup= e =>{
         <Link to="/">
             <img 
                 className="register__logo"
+                alt=""
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
                 />
         </Link>

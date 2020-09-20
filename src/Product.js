@@ -1,25 +1,32 @@
-import React,{useContext} from 'react'
-import './Product.css'
+import React,{useContext} from 'react';
+import './Product.css';
 
-import cart from './cartservice';
-import {DataContext } from './DataContext';
-
+import {useSelector,useDispatch} from 'react-redux';
+import {addToBasket} from './action';
+import { useHistory } from 'react-router-dom';
 
 function Product({title,image,price,rating}) {
-    const [cart,setCart]=useContext(DataContext);
 
-   
+    const dispatch=useDispatch();
+    const  authReducer=useSelector(state=>state.authReducer);
+    const history=useHistory();
+
     function addtocart(title,image,price,rate){
 
-
-        setCart(state=>[...state,{
-            title:title,
-            image:image,
-            rate:rate,
-            price:price,
-        }])
-        
-        console.log(cart)
+        if(authReducer){
+            dispatch(
+                addToBasket({
+                    title:title,
+                    image:image,
+                    rate:rate,
+                    price:price,
+                })
+            )
+        }
+        else{
+            alert("Please login first before adding item to cart!");
+            history.push('/login');
+        }  
     }
   
 

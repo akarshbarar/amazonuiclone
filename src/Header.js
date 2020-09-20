@@ -2,51 +2,42 @@ import React,{useEffect,useState,useContext,useReducer} from 'react'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-
 import db from './firebase';
 
 import {Link} from 'react-router-dom'
 
 import { useHistory } from 'react-router-dom'
 
-import userNameFromUtil from  './util';
+import {useSelector} from 'react-redux';
+import {addUser} from './action'
 
-import cart from './cartservice';
-
-import {DataContext } from './DataContext';
-
-import {reducer } from './DataContext';
+import {useDispatch} from 'react-redux'
 
 function Header() {
 
-
+    const  cartReducer=useSelector(state=>state.cartReducer);
+    const  authReducer=useSelector(state=>state.authReducer);
     const [name, setName] = useState('')
     const history=useHistory();
-    const [cart,setCart]=useContext(DataContext);
 
+    const dispatch=useDispatch();
 
-     useEffect( () => {  
-        //var user=userName;
-        db.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              // User is signed in.
-            //   setName(db.auth().currentUser.displayName);
-            //   history.push('/')
-            setName(db.auth().currentUser.displayName);
-              // ...
-            } else {
-              // User is signed out.
-              // ...
-            }
+    const signout=(e)=>{
+        e.preventDefault();
+
+        db.auth().signOut().then(function() {
+            console.log('Signed Out');
+            dispatch(
+                addUser(null)
+            )
+          }, function(error) {
+            console.error('Sign Out Error', error);
           });
-     }, [])
-
+       
+    }
+ 
     return (
-
-        
         <div className="header">
-          
-
             {/* LOGO */}
             <Link to="/">
               <img className="header__logo"
@@ -56,7 +47,7 @@ function Header() {
 
             {/* SEARCH BOX */}
             <div className="header__search">
-                <input className="header__searchInput" type="text"/>
+                <input className="header__searchInput" type="text" placeholder="Search an item"/>
                 <SearchIcon className="header__searchIcon"/>
             </div>
             
@@ -67,8 +58,11 @@ function Header() {
                     <div className="header__option">
                        
                       
-                        <span className="header__optionLineOne">Hello,{name} </span>
-                        <span className="header__optionLineTwo">Sign In</span>
+                        <span className="header__optionLineOne">Hello,{authReducer} </span>
+                        {
+                            authReducer?<span className="header__optionLineTwo" onClick={signout}>Sign Out</span>
+                                       :<span className="header__optionLineTwo">Sign In</span>
+                        }
                     </div>
                 </Link>
                 {/* 2nd Link */}
@@ -93,7 +87,7 @@ function Header() {
                         {/* BASKET ICON */}
                         <ShoppingCartOutlinedIcon/>
                         {/* NUMBER OF ITEM */}
-                        <span className="header__optionLineTwo header__basketCount">{cart.length}</span>
+                        <span className="header__optionLineTwo header__basketCount">{cartReducer.length}</span>
                     </div>
                 </Link>
 
