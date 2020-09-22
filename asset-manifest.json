@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/amazoncloneui/static/css/main.9ef08de7.chunk.css",
-    "main.js": "/amazoncloneui/static/js/main.a20f6b41.chunk.js",
-    "main.js.map": "/amazoncloneui/static/js/main.a20f6b41.chunk.js.map",
-    "runtime-main.js": "/amazoncloneui/static/js/runtime-main.3198f19d.js",
-    "runtime-main.js.map": "/amazoncloneui/static/js/runtime-main.3198f19d.js.map",
-    "static/js/2.f1cbf76e.chunk.js": "/amazoncloneui/static/js/2.f1cbf76e.chunk.js",
-    "static/js/2.f1cbf76e.chunk.js.map": "/amazoncloneui/static/js/2.f1cbf76e.chunk.js.map",
-    "index.html": "/amazoncloneui/index.html",
-    "precache-manifest.2a71319ae3ecb247e44524e0bb7fbbda.js": "/amazoncloneui/precache-manifest.2a71319ae3ecb247e44524e0bb7fbbda.js",
-    "service-worker.js": "/amazoncloneui/service-worker.js",
-    "static/css/main.9ef08de7.chunk.css.map": "/amazoncloneui/static/css/main.9ef08de7.chunk.css.map",
-    "static/js/2.f1cbf76e.chunk.js.LICENSE.txt": "/amazoncloneui/static/js/2.f1cbf76e.chunk.js.LICENSE.txt",
-    "static/js/main.a20f6b41.chunk.js.LICENSE.txt": "/amazoncloneui/static/js/main.a20f6b41.chunk.js.LICENSE.txt"
+    "main.css": "/amazonuiclone/static/css/main.9ef08de7.chunk.css",
+    "main.js": "/amazonuiclone/static/js/main.10f5e75d.chunk.js",
+    "main.js.map": "/amazonuiclone/static/js/main.10f5e75d.chunk.js.map",
+    "runtime-main.js": "/amazonuiclone/static/js/runtime-main.ec05bfe0.js",
+    "runtime-main.js.map": "/amazonuiclone/static/js/runtime-main.ec05bfe0.js.map",
+    "static/js/2.89d046ce.chunk.js": "/amazonuiclone/static/js/2.89d046ce.chunk.js",
+    "static/js/2.89d046ce.chunk.js.map": "/amazonuiclone/static/js/2.89d046ce.chunk.js.map",
+    "index.html": "/amazonuiclone/index.html",
+    "precache-manifest.7b237d322161284b4040f2079848926e.js": "/amazonuiclone/precache-manifest.7b237d322161284b4040f2079848926e.js",
+    "service-worker.js": "/amazonuiclone/service-worker.js",
+    "static/css/main.9ef08de7.chunk.css.map": "/amazonuiclone/static/css/main.9ef08de7.chunk.css.map",
+    "static/js/2.89d046ce.chunk.js.LICENSE.txt": "/amazonuiclone/static/js/2.89d046ce.chunk.js.LICENSE.txt",
+    "static/js/main.10f5e75d.chunk.js.LICENSE.txt": "/amazonuiclone/static/js/main.10f5e75d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3198f19d.js",
-    "static/js/2.f1cbf76e.chunk.js",
+    "static/js/runtime-main.ec05bfe0.js",
+    "static/js/2.89d046ce.chunk.js",
     "static/css/main.9ef08de7.chunk.css",
-    "static/js/main.a20f6b41.chunk.js"
+    "static/js/main.10f5e75d.chunk.js"
   ]
 }
