@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import { HashRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-
+//import { browserHistory } from 'react-router'
 
 import Login from './Login';
 import Checkout from './Checkout';
